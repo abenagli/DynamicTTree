@@ -32,8 +32,9 @@ public:
         DynamicTTreeBase()
         {
             //---create new TTree
-            tree_ = new TTree(name, title);
-
+            //tree_ = new TTree(name, title);
+            tree_ = fs_->make<TTree>(name, title);
+            
             //---create branches
             //---basic types
             std::string leaf;
@@ -103,7 +104,7 @@ public:
 
                 //---get first entry in case c-arrays range depends on one of the previous variables
                 tree_->GetEntry(0);
-
+v
             //---c array
 #define DATA(t, name, size) name=new argument_type<void(t)>::type[size]; tree_->SetBranchAddress(#name, name);
             DATA_VECT_TABLE                                                          
